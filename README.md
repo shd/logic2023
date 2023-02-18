@@ -23,3 +23,19 @@ https://www.mccme.ru/free-books/shen/shen-logic-part2-2.pdf
 задуманы или более явно выведены, чем религиозные мистерии и точки веры» --- М.: Мысль, 1978
 + О разных вариантах исчисления высказываний (включая варианты с одной схемой аксиом):
 https://en.wikipedia.org/wiki/List_of_Hilbert_systems
+
+## Лекция 2
+### Теоремы об исчислении высказываний
++ Теорема о дедукции
++ Теорема о полноте классическое И.В.
++ Введение в интуиционистское исчисление высказываний: история
++ BHK-интерпретация связок
++ Топологическая интерпретация интуиционистского исчисления высказываний
+### Где почитать
++ Н.К. Верещагин, А. Шень. Лекции по математической логике и теории алгоритмов. Языки и исчисления.
+https://www.mccme.ru/free-books/shen/shen-logic-part2-2.pdf
++ Конспекты 2011 и 2018 года по логике.
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
++ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009 
+http://logic.math.msu.ru/wp-content/uploads/plisko/intlog.pdf
