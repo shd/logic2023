@@ -482,8 +482,8 @@ $$(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$$\pause
  истина & \texttt{1 shl n - 1} & $X$\\
  $\llbracket \alpha \with \beta \rrbracket$ & $\llbracket \alpha \rrbracket\texttt{ and }\llbracket \beta \rrbracket$  & $\llbracket \alpha \rrbracket \cap \llbracket \beta \rrbracket$\\
  $\llbracket \alpha \vee \beta \rrbracket$ & $\llbracket \alpha \rrbracket\texttt{ or }\llbracket \beta \rrbracket$ & $\llbracket \alpha \rrbracket \cup \llbracket \beta \rrbracket$\\
+ $\llbracket \alpha \rightarrow \beta \rrbracket$ & $((\texttt{not } \llbracket \alpha \rrbracket)\texttt{ or }\llbracket \beta \rrbracket) {\color{blue}\texttt{ and (1 shl n - 1)}}$ & $(X \setminus \llbracket \alpha \rrbracket) \cup \llbracket \beta \rrbracket$\\
  $\llbracket \neg\alpha \rrbracket$ & $(\texttt{not } \llbracket \alpha \rrbracket){\color{blue}\texttt{ and (1 shl n - 1)}} $ & $X \setminus \llbracket \alpha \rrbracket$\\
- $\llbracket \alpha \rightarrow \beta \rrbracket$ & $\llbracket \neg\alpha \rrbracket\texttt{ or }\llbracket \beta \rrbracket$ & $(X \setminus \llbracket \alpha \rrbracket) \cup \llbracket \beta \rrbracket$\\
 \end{tabular}\end{center}
 
 \begin{exmprus}Пусть $X = \{ \square, \star, \circ \}$, $A = \{ \square \}$, $B = \{\circ\}$, тогда 
