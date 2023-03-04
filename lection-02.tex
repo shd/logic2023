@@ -449,7 +449,7 @@ $$(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$$\pause
 \item Материальная импликация $A\rightarrow B$ для автора в данный момент
 выполнена, поскольку дождя за окном не идёт.\pause
 
-\item Формальная импликация $A\rightarrow B$ места не имеет.\pause
+\item Формальная импликация $A\rightarrow B$ места не имеет.
 \end{itemize}
 
 \end{frame}
@@ -482,14 +482,14 @@ $$(A \rightarrow B) \vee (B \rightarrow C) \vee (C \rightarrow A)$$\pause
  истина & \texttt{1 shl n - 1} & $X$\\
  $\llbracket \alpha \with \beta \rrbracket$ & $\llbracket \alpha \rrbracket\texttt{ and }\llbracket \beta \rrbracket$  & $\llbracket \alpha \rrbracket \cap \llbracket \beta \rrbracket$\\
  $\llbracket \alpha \vee \beta \rrbracket$ & $\llbracket \alpha \rrbracket\texttt{ or }\llbracket \beta \rrbracket$ & $\llbracket \alpha \rrbracket \cup \llbracket \beta \rrbracket$\\
- $\llbracket \alpha \rightarrow \beta \rrbracket$ & $(\texttt{not }\llbracket \alpha \rrbracket)\texttt{ and }\llbracket \beta \rrbracket$ & $(X \setminus \llbracket \alpha \rrbracket) \cup \llbracket \beta \rrbracket$\\
- $\llbracket \neg\alpha \rrbracket$ & $(\texttt{not } \llbracket \alpha \rrbracket){\color{blue}\texttt{ and (1 shl n - 1)}} $ & $X \setminus \llbracket \alpha \rrbracket$
+ $\llbracket \alpha \rightarrow \beta \rrbracket$ & $((\texttt{not } \llbracket \alpha \rrbracket)\texttt{ or }\llbracket \beta \rrbracket) {\color{blue}\texttt{ and (1 shl n - 1)}}$ & $(X \setminus \llbracket \alpha \rrbracket) \cup \llbracket \beta \rrbracket$\\
+ $\llbracket \neg\alpha \rrbracket$ & $(\texttt{not } \llbracket \alpha \rrbracket){\color{blue}\texttt{ and (1 shl n - 1)}} $ & $X \setminus \llbracket \alpha \rrbracket$\\
 \end{tabular}\end{center}
 
 \begin{exmprus}Пусть $X = \{ \square, \star, \circ \}$, $A = \{ \square \}$, $B = \{\circ\}$, тогда 
 \begin{center}\begin{tabular}{rl}
 $\llbracket A \rightarrow A\vee B \rrbracket = $& $\left(X \setminus \{ \square \}\right) \cup (\{\square\}\cup\{\circ\}) = \{\star,\circ\}\cup\{\square,\circ\} = X$ \\
-$\llbracket A \rightarrow B\rrbracket =$ & $(X \setminus \{ square \}) \cup \{ \circ \} = \{ \star, \circ \} \ne X$
+$\llbracket A \rightarrow B\rrbracket =$ & $(X \setminus \{ \square \}) \cup \{ \circ \} = \{ \star, \circ \} \ne X$
 \end{tabular}\end{center}
 \end{exmprus}
 \end{frame}
