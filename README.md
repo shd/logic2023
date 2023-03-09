@@ -51,3 +51,15 @@ http://logic.math.msu.ru/wp-content/uploads/plisko/intlog.pdf
 http://logic.math.msu.ru/wp-content/uploads/plisko/intlog.pdf
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 4
+### Теоремы об интуиционистском исчислении высказываний
++ Модели Крипке, их соответствие алгебрам Гейтинга
++ Нетабличность ИИВ
++ Дизъюнктивность ИИВ
++ Естественный вывод для ИИВ
+### Где почитать
++ В.Е.Плиско, В.Х.Хаханян, Интуиционистская логика, Мех-Мат МГУ 2009
+http://logic.math.msu.ru/wp-content/uploads/plisko/intlog.pdf
++ Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
+https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
