@@ -299,68 +299,75 @@ $X \in \Omega$, если $X=\varnothing$ или $X = \bigcup_i A(a_i)$ (все $
 \item Покажите, что $[\alpha]_\mathcal{L} + [\beta]_\mathcal{L} = [\alpha\vee\beta]_\mathcal{L}$.
 Зависит ли результат от выбора представителей классов эквивалентности $[\alpha]$ и $[\beta]$? Ответ также докажите.
 \item Покажите, что $[\alpha\rightarrow\beta]_\mathcal{L}$ --- псевдодополнение $[\alpha]_\mathcal{L}$ до $[\beta]_\mathcal{L}$.
+\end{enumerate}
 
-%\item Моделью Крипке назовём упорядоченную тройку $\langle \mathcal{W}, \preceq, (\Vdash)\rangle$ --- множество миров,
-%отношение нестрогого частичного порядка на мирах (давайте считать, что это множество представляет из себя дерево), отношение вынужденности
-%(сопосотавляющее каждой переменной множество миров, где эта переменная вынуждена).
-%При этом должно быть выполнено условие: если $W_i \preceq W_j$ и $W_i \Vdash X$, то $W_j \Vdash X$.
-%
-%Тогда доопределим отношение вынужденности на всех формулах:
-%\begin{itemize}
-%\item $W \Vdash \alpha\with\beta$, если $W \Vdash \alpha$ и $W \Vdash \beta$;
-%\item $W \Vdash \alpha\vee\beta$, если $W \Vdash \alpha$ или $W \Vdash \beta$;
-%\item $W \Vdash \alpha\rightarrow\beta$, если всегда при $W \preceq W_1$ и $W_1 \Vdash \alpha$ выполнено $W_1 \Vdash \beta$
-%\item $W \Vdash \neg\alpha$, если всегда при $W \preceq W_1$ выполнено $W_1 \Vdash \alpha$.
-%\end{itemize}
-%
-%Будем говорить, что $\alpha$ вынуждена в модели Крипке, если она вынуждена во всех мирах этой модели.
-%Будем говорить, что $\models\alpha$, если она вынуждена во всех моделях Крипке.
-%
-%Например, следующая модель доказывает, что $\not\models A \vee \neg A$. 
-%\begin{center}\tikz{
-%\node at (0,0)   (A) {$W_1$};
-%\node at (2,1) (B) {$W_2\ (\Vdash A)$};
-%\node at (2,-1) (C) {$W_3$};
-%\draw[->] (A) to (B); 
-%\draw[->] (A) to (C); 
-%}\end{center}
-%
-%Тогда, $W_3 \Vdash \neg A$, но $W_1 \not\Vdash A$ (по определению) и $W_1 \not\Vdash \neg A$ (так как
-%$W_1 \preceq W_2$ и $W_2 \Vdash \neg A$). Значит, $W_1 \not\Vdash A \vee \neg A$.
-%
-%Опровергните формулы, построив соответствующие модели Крипке:
-%
-%\begin{enumerate}
-%\item $\neg\neg A \rightarrow A$
-%\item $((A \rightarrow B) \rightarrow A) \rightarrow A$
-%\item $(A \rightarrow B) \vee (B \rightarrow A)$
-%\item $(A \rightarrow B \vee \neg B) \vee (\neg A \rightarrow B \vee \neg B)$
-%\item $\bigvee_{i=0,n-1} A_i \rightarrow A_{(i+1) \% n}$
-%\end{enumerate}
-%
-%\item Покажите, что любая модель Крипке обладает свойством: для любых $W_i, W_j, \alpha$, 
-%если $W_i \preceq W_j$ и $W_i \Vdash \alpha$, то $W_j \Vdash \alpha$.
+\section*{Задание №4. Модели Крипке.}
 
-%\item Топологическим пространством $\langle X, \Omega\rangle$ называется упорядоченная пара
-%из множества $X$ и множества подмножеств $\Omega \subseteq \mathcal{P}(X)$ (элементы множества
-%$\Omega$ называются \emph{открытыми} множествами), причём выполнены
-%три свойства:
-%\begin{itemize}
-%\item $\varnothing, X \in \Omega$
-%\item Объединение произвольного семейства открытых множеств открыто: если $A_i \in \Omega$, то $\bigcup A_i \in \Omega$
-%\item Пересечение конечного семейства открытых множеств открыто: если $A_1,\dots,A_n \in \Omega$, то $A_1 \cap A_2 \cap \dots \cap A_n \in \Omega$
-%\end{itemize}
+\begin{enumerate}
+\item Опровергните формулы, построив соответствующие модели Крипке:
 
-%\begin{enumerate}
-%\item Постройте топологическое пространство, 
-%\end{enumerate}
+\begin{enumerate}
+\item $\neg\neg A \rightarrow A$
+\item $((A \rightarrow B) \rightarrow A) \rightarrow A$
+\item $(A \rightarrow B \vee \neg B) \vee (\neg A \rightarrow B \vee \neg B)$
+\item $\bigvee_{i=0,n-1} A_i \rightarrow A_{(i+1) \% n}$
+\end{enumerate}
 
-%\item Рассмотрим дерево миров $\mathcal{W}$ с частичным отношением порядка $(\preceq)$. Назовём множество миров $S \subseteq \mathcal{W}$
-%открытым, если для всех $W_1 \in S$ выполнено, что если $W_1 \preceq W_p$, то $W_p \in S$. Иными словами, в множестве каждый мир содержится
-%вместе со своими потомками.
-%
-%Докажите, что открытые множества миров образуют топологию на $\mathcal{W}$.
-%\end{enumerate}
+\item Покажите, что любая модель Крипке обладает свойством: для любых $W_i, W_j, \alpha$, 
+если $W_i \preceq W_j$ и $W_i \Vdash \alpha$, то $W_j \Vdash \alpha$.
+
+\item Несколько задач на упрощение структуры миров моделей Крипке.
+\begin{enumerate}
+\item Покажите, что формула опровергается моделью Крипке тогда и только тогда, когда она
+опровергается древовидной моделью Крипке.
+
+\item Верно ли, что если формула опровергается некоторой древовидной моделью Крипке (причём
+у каждой вершины не больше двух сыновей), то эту 
+древовидную модель можно достроить до полного бинарного дерева, с сохранением свойства опровержимости?
+
+\item Верно ли, что если некоторая модель Крипке опровергает некоторую формулу,
+то добавление любого мира к модели в качестве потомка к любому из узлов оставит опровержение в силе?
+\end{enumerate}
+
+\item Постройте формулу, которая не может быть опровергнута моделью Крипке (ответ требуется доказать):
+\begin{enumerate}
+\item глубины 2 и меньше;
+\item глубины $n \in \mathbb{N}$ и меньше.
+\end{enumerate}
+
+\item Покажите аналог теоремы о дедукции для естественного вывода: $\Gamma,\alpha\vdash\beta$ тогда и только тогда, когда
+$\Gamma\vdash\alpha\rightarrow\beta$.
+
+
+\item Определим отображение между языками вывода (гильбертов и естественный вывод): 
+
+\begin{tabular}{ll}щ
+$|\varphi|_\text{е}=\left\{\begin{array}{ll} |\alpha|_\text{е}\star|\beta|_\text{е}, & \varphi = \alpha\star\beta\\
+                                              |\alpha|_\text{е}\rightarrow\bot, & \varphi = \neg\alpha\\
+                                              X, & \varphi = X\end{array}\right.$
+&
+$|\varphi|_\text{г}=\left\{\begin{array}{ll} |\alpha|_\text{г}\star|\beta|_\text{г}, & \varphi = \alpha\star\beta\\
+                                              A\with\neg A, & \varphi = \bot\\
+                                              X, & \varphi = X\end{array}\right.$
+\end{tabular}
+
+\begin{enumerate}
+\item покажите, что $\vdash_\text{е}\alpha$ влечёт $\vdash_\text{г}|\alpha|_\text{г}$;
+\item покажите, что $\vdash_\text{г}\alpha$ влечёт $\vdash_\text{е}|\alpha|_\text{е}$.
+\end{enumerate} 
+
+\item Классическое исчисление высказываний также можно cформулировать в стиле естественного вывода, заменив правило исключения лжи на такое:
+$$\infer[(\text{удал}\neg\neg)]{\Gamma\vdash\varphi}{\Gamma,\varphi\rightarrow\bot\vdash\bot}$$
+
+В этом задании будем обозначать через $\Gamma\vdash_\text{к}\varphi$ тот факт, что формула $\varphi$ выводится из контекста
+$\Gamma$ в классическом И.В. в варианте естественного вывода.
+
+\begin{enumerate}
+\item Покажите, что если $\vdash_\text{к}\varphi$ и $A_1, \dots, A_n$ --- все
+пропозициональные переменные из $\varphi$, то\\$\vdash_\text{е} A_1 \vee \neg A_1 \rightarrow A_2 \vee \neg A_2 \rightarrow \dots \rightarrow A_n \vee \neg A_n \rightarrow \varphi$.
+
+\item Покажите теорему Гливенко: если $\vdash_\text{к} \varphi$, то $\vdash_\text{е} \neg\neg\varphi$.
+\end{enumerate}
 
 \end{enumerate}
 
