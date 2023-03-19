@@ -63,3 +63,10 @@ https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
 http://logic.math.msu.ru/wp-content/uploads/plisko/intlog.pdf
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 5
+### Исчисление предикатов
++ Язык исчисления предикатов
++ Теория моделей, теория доказательств
++ Теорема о дедукции
++ Теорема о корректности
