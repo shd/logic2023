@@ -279,10 +279,10 @@ $$\models\phi$$\end{dfn}\pause
 Обозначим $P_{Q}(F_{f}(E_x))$ за $t$. \pause
 Ясно, что $t \in V$. Разберём случаи.
 \begin{itemize}
-\item Если $t = \text{И}$, то $\llbracket P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$,
-  потому $\llbracket P(f(x))\vee\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$
-\item Если $t = \text{Л}$, то $\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$, потому
-  всё равно $\llbracket P(f(x))\vee\neg P(f(x))\rrbracket^{P(f(x)):=t} = \text{И}$
+\item Если $t = \text{И}$, то $\llbracket Q(f(x))\rrbracket^{Q(f(x)):=t} = \text{И}$,
+  потому $\llbracket Q(f(x))\vee\neg Q(f(x))\rrbracket^{Q(f(x)):=t} = \text{И}$
+\item Если $t = \text{Л}$, то $\llbracket \neg Q(f(x))\rrbracket^{Q(f(x)):=t} = \text{И}$, потому
+  всё равно $\llbracket Q(f(x))\vee\neg Q(f(x))\rrbracket^{Q(f(x)):=t} = \text{И}$
 \end{itemize}
 \end{proof}
 \end{frame}
