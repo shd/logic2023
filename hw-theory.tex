@@ -504,4 +504,65 @@ $$\underline{0}11 \Rightarrow 1\underline{1}1 \Rightarrow 10\underline{1} \Right
 Естественно, символы алфавитов при кодировке меняются на их номера, и эти номера надо будет как-то записывать в виде последовательностей цифр 0 и 1.
 \end{enumerate}
 
+\section*{Задание №7. Аксиоматика Пеано, формальная арифметика.}
+\begin{enumerate}
+\item Рассмотрим аксиоматику Пеано. 
+Пусть $$a^b = \left\{\begin{array}{ll}1,& b= 0 \\a^c\cdot a,&b = c'\end{array}\right.$$
+Докажите, что:
+\begin{enumerate}
+\item $a \cdot b = b \cdot a$
+\item $(a + b) \cdot c = a \cdot c + b \cdot c$
+\item $a^{b+c} = a^b \cdot a^c$
+\item $(a^b)^c = a^{b \cdot c}$
+\end{enumerate}
+
+\item Определим отношение <<меньше или равно>> так: $0 \le a$ и $a' \le b'$, если $a \le b$. Докажите, что:
+\begin{enumerate}
+\item $x \le x+y$;
+\item $x \le x \cdot y$ (укажите, когда это так --- в остальных случаях приведите контрпримеры);
+\item Если $a \le b$ и $m \le n$, то $a \cdot m \le b \cdot n$;
+\item $x \le y$ тогда и только тогда, когда существует $n$, что $x + n = y$;
+\item Будем говорить, что $a$ делится на $b$ с остатком, если существуют такие $p$ и $q$, что 
+$a = b \cdot p + q$ и $0 \le q < b$. Покажите, что $p$ и $q$ всегда существуют и единственны,
+если $b > 0$.
+\end{enumerate}
+
+\item Определим <<ограниченное вычитание>>: $$a \dotminus b = \left\{\begin{array}{ll}0, & a = 0\\a, & b = 0\\p \dotminus q, & a = p', b = q'\end{array}\right.$$
+Докажите, что:
+\begin{enumerate}
+\item $a + b \dotminus b = a$;
+\item $(a \dotminus b) \cdot c = a \cdot c \dotminus b \cdot c$;
+\item $a \dotminus b \le a + b$;
+\item $a \dotminus b = 0$ тогда и только тогда, когда $a \le b$.
+\end{enumerate}
+
+\item Обозначим за $\overline{n}$ представление числа $n$ в формальной арифметике: %, по сути это ноль с $n$ штрихами:
+
+$$\overline{n} = \left\{\begin{array}{ll}0, &n = 0\\
+           \left(\overline{k}\right)', & n=k+1\end{array}\right.$$
+
+Например, $\overline{5} = 0'''''$. Докажите в формальной арифметике:
+\begin{enumerate}
+\item $\vdash \overline{2} \cdot \overline{3} = \overline{6}$;
+\item $\vdash \forall p.(\exists q.q' = p) \vee p = 0$ (единственность нуля);
+\item $\vdash p \cdot q = 0 \rightarrow p = 0 \vee q = 0$ (отсутствие делителей нуля);
+\end{enumerate}
+
+\item Будем говорить, что $k$-местное отношение $R$ выразимо в формальной арифметике,
+если существует формула формальной арифметики $\rho$ со свободными переменными $x_1, \dots, x_k$, что:
+\begin{enumerate}
+\item для всех $\langle a_1, \dots, a_k \rangle \in R$ выполнено $\vdash\rho[x_1 := \overline{a_1}]\dots[x_k := \overline{a_k}]$
+(доказуема формула $\rho$ с подставленными значениями $a_1, \dots, a_k$ вместо свободных переменных $x_1, \dots, x_k$);
+\item для всех $\langle a_1, \dots, a_k \rangle \notin R$ выполнено $\vdash\neg\rho[x_1 := \overline{a_1}]\dots[x_k := \overline{a_k}]$.
+\end{enumerate}
+
+Выразите в формальной арифметике (укажите формулу $\rho$ и докажите требуемые свойства про неё):
+\begin{enumerate}
+\item <<полное>> отношение $R = \mathbb{N}^2$ (любые два числа состоят в отношении);
+\item отношение $(=)$;
+\item отношение <<хотя бы один из аргументов равен 0>>.
+\end{enumerate}
+
+\end{enumerate}
+
 \end{document}
