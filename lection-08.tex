@@ -211,8 +211,8 @@ $... = N(x+y) = x+y+1$
 \item Неформально: все функции, вычисляемые конечным числом вложенных циклов \verb!for!:
 
 \begin{verbatim}
-for (int i1 = 0; i_1 < g1(x1...xn); i1++) {
-    for (int i2 = 0; i_2 < g2(x1...xn,i1); i2++) {
+for (int i1 = 0; i1 < g1(x1...xn); i1++) {
+    for (int i2 = 0; i2 < g2(x1...xn,i1); i2++) {
         ...
            for (int ik = 0; ik < gk(x1...xn,i1,i2...); ik++) {
                // выражение без циклов
