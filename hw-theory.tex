@@ -13,6 +13,7 @@
 \usepackage{tikz}
 \usepackage{multicol}
 \usepackage{mathabx}
+\usepackage{comment}
 
 \makeatletter
 \newcommand{\dotminus}{\mathbin{\text{\@dotminus}}}
@@ -631,6 +632,94 @@ $\vdash\neg\varphi(\overline{x_1},\dots,\overline{x_n},\overline{y})$ при $f(
 \item Покажите, что вопрос о принадлежности формулы $\alpha(x) = \forall p.\delta(x,p) \rightarrow \neg \sigma(x)$ в доказательстве 
 теоремы о невыразимости доказуемости к множеству $Th_\mathcal{S}$ ведёт к противоречию.
 \item Покажите, что формула $D(x)$ из доказательства теоремы о невыразимости доказуемости является представимой в формальной арифметике.
+\end{enumerate}
+
+\section*{Задание №10. Теория множеств.}
+\begin{enumerate}
+\item Пусть заданы списки (в любом языке программирования) $L(\alpha)$, хранящие значения типа $\alpha$.
+Реализуйте следующие функции, являющиеся аналогами конструктивных аксиом теории множеств:
+\begin{itemize}
+\item $\texttt{empty}: L(\alpha)$, строит пустой список.
+\item $\texttt{pair}: (\alpha, \alpha) \rightarrow L(\alpha)$, формирует список из двух своих аргументов.
+\item $\texttt{flatten}: L(L(\alpha)) \rightarrow L(\alpha)$, соединяет все списки внутри списка в один.
+\item $\texttt{powerset}: L(\alpha) \rightarrow L(L(\alpha))$, делает из списка список всех возможных подсписков.
+\item $\texttt{filter}: (\alpha \rightarrow \texttt{bool}) \rightarrow L(\alpha) \rightarrow L(\alpha)$,
+выделяет из списка все элементы, соответствующие условию.
+\end{itemize}
+Данное задание не разбивается на пункты.
+\item Определим упорядоченную пару $\langle a,b\rangle := \{\{a\},\{a,b\}\}$. Покажите, что
+$\langle a,b \rangle = \langle c,d\rangle$ тогда и только тогда, когда $a = c$ и $b = d$.
+\item Докажите, что следующие конструкции являются множествами, также предложите их реализацию в смысле п.1: 
+\begin{enumerate}
+\item пересечение всех элементов множества ($\bigcap a$);
+\item $a\ \setminus\ b$ (разность множеств);
+\item $a \uplus b$ (дизъюнктное объединение множеств: $\{\langle x,0\rangle\mid x\in a\}\cup\{\langle x,1\rangle\mid x\in b\}$);
+\item $a \times b$ (декартово произведение множеств: $\{\langle p,q\rangle\ |\ p\in a, q\in b\}$).
+\end{enumerate}
+\item Определите формулу $\varphi(x)$ для свойства <<$x$ --- конечный ординал>>. Укажите замкнутый
+вид для формулы, задающей ординал $\omega$.
+\item Покажите, что если $x$ --- ординал, то $x'$ --- тоже ординал.
+\item Верно ли, что если $x'$ --- ординал, то $x$ --- тоже ординал?
+\item Покажите, что на множестве $\omega$ выполняется аксиоматика Пеано (полная формализация рассуждений не требуется,
+но из изложения должно быть понятно, как эту формализацию в рамках теории первого порядка получить):
+\begin{enumerate}
+\item $\forall x.x \in \omega \rightarrow \neg x' = \varnothing$
+\item $\forall x.\forall y.x \in \omega \with y \in \omega \rightarrow x' = y' \rightarrow x = y$
+\item (\emph{указание к следующему пункту}) покажите, что если $\vdash\forall x.\neg\phi(x)\rightarrow A\with\neg A$, то $\vdash\forall x.\phi(x)$.
+\item Если $\phi(\varnothing)$ и $\forall x.x \in \omega \rightarrow \phi(x) \rightarrow \phi(x')$, 
+то $\forall x.x \in \omega \rightarrow \phi(x)$.
+\end{enumerate}
+\item Проверьте следующие равенства (докажите или опровергните):
+\begin{enumerate}
+\item $\omega\cdot\overline{2} = \overline{2}\cdot\omega$
+\item $\omega\cdot\overline{2} = \omega + \omega$
+\item $(\omega+\overline{1})^{\overline{2}} = \omega^{\overline{2}} + \overline{2}\cdot \omega + \overline{1}$
+\item $\omega ^ \omega = (\omega ^ {\overline{2}}) ^ \omega$
+\item $\omega ^ {\omega + \overline{1}} = \omega ^ \omega + \overline{1}$
+\item Имеет ли место ассоциативность сложения и/или умножения?
+\end{enumerate}
+\item Верно ли, что $1^\omega = \omega$ и/или $\omega^1 = \omega$?
+\item Зачёт за пункт ставится, если одновременно решены два подпункта:
+(i) Покажите, что множество $\omega^\omega$ имеет счётную мощность. 
+(ii) Определим $\uparrow k$ (башню из омег) так:
+
+$$\uparrow k = \left\{\begin{array}{ll}\omega,&k = 1\\\omega^{\uparrow n},&k = n'\end{array}\right.$$
+
+Скажем, $\uparrow 3 = \omega^{\left(\omega^\omega\right)}$. Будет ли счётным ординал $\sup\{\uparrow k\ |\ k \in \omega\}$?
+\item Существует ли ординал, которому соответствует множество неотрицательных рациональных чисел и упорядоченность на нём?
+То есть, существует ли ординал $\sigma$, что существует биекция $f: \mathbb{Q^+} \rightarrow \sigma$, причём
+для всех $a,b \in \mathbb{Q^+}$ из $a \le b$ следует $f(a) \le f(b)$ (и обратно).
+\begin{comment}
+\item Верно ли, что для любого отношения полного порядка на счётном множестве существует соответствующий ему ординал,
+имеющий тот же порядок?
+\item Покажите следующее (обозначим за $\mathcal{F}(p,q)$ множество функций из $p$ в $q$):
+\begin{enumerate}
+\item $|a|=0$ тогда и только тогда, когда $a = \varnothing$;
+\item если $|a|\le|b|$, то $|\mathcal{F}(g,a)| \le |\mathcal{F}(g,b)|$;
+\item если $|a|\le|b|$ и $\overline{0}<|g|$, то $|\mathcal{F}(a,g)| \le |\mathcal{F}(b,g)|$;
+\item $|\mathcal{F}(\overline{0},a)| = \overline{1}$, $|\mathcal{F}(\overline{1},a)| = \overline{1}$; если $|a| > 0$, то $|\mathcal{F}(a,\overline{0})| = \overline{0}$;
+\item если $|a|\ge\aleph_0$ и $0 < |n| < \aleph_0$, то $|\mathcal{F}(a,n)| = a$.
+\end{enumerate}
+\item Покажите эквивалентность следующих определений конечного множества (задание $(k)$ предполагает доказательство
+импликации $(k)\rightarrow(k')$; возможно, некоторые из переходов потребуют аксиому выбора):
+\begin{enumerate}
+\item $a$ конечно, если каждое непустое семейство подмножеств $a$ имеет максимальный по включению элемент.
+Например, при $a = \{0,1,2\}$ в семействе подмножеств $\{\varnothing,\{0,1\},\{1,2\}\}$ элементы $\{0,1\}$ и $\{1,2\}$ --- максимальны.
+\item $a$ конечно, если $\mathcal{P}(a)$ не равномощно своему собственному подмножеству (собственное подмножество --- подмножество, не совпадающее с множеством).
+\item $a$ конечно, если оно не равномощно своему собственному подмножеству.
+\item $a$ конечно, если $|a|=\varnothing$ или $|a|\cdot\overline{2} > |a|$.
+\item $a$ конечно, если $|a|=\varnothing$ или $|a|=\overline{1}$ или $|a|^2 > |a|$.
+\item $a$ конечно, если $|a|<\aleph_0$.
+\end{enumerate}
+\item Покажите, что функция $f: a \rightarrow b$ биективна (т.е. инъективна и сюръективна) тогда и только тогда,
+когда $\forall y.\exists!x.\phi(x,y)$. Здесь за $\phi(x,y)$ мы обозначаем формулу, представляющую функцию $f$
+в теории множеств, по аналогии с формальной арифметикой.
+\item Покажите, что если $a$ и $b$ --- непустые множества, то существует функция из $a$ в $b$ 
+(однако, функция не обязана быть инъективной или сюръективной).
+\item Пусть множество $a$ вполне упорядоченное. Назовём множество $\{ x\in a \mid x < y\}$, где $y\in a$, начальным отрезком $a$. 
+Рассмотрим произвольную пару вполне упорядоченных множеств $a$ и $b$.
+Покажите, что либо между $a$ и $b$ есть биекция, сохраняющая порядок (такая, что $x < y$ влечёт $f(x) < f(y)$), либо есть инъективное отображение из одного множества в начальный отрезок другого, также сохранающее порядок.
+\end{comment}
 \end{enumerate}
 
 \end{document}
