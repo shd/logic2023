@@ -69,7 +69,7 @@ $\mathcal{H} \not\models \alpha$.
 построенная по $\llbracket \varphi_1 \rrbracket, \dots, \llbracket \varphi_n \rrbracket$, $0$ и $1$. 
 
 Очевидно, что $\mathcal{G}$ --- алгебра Гейтинга, и можно показать, 
-что $\mathcal{G} \not\models \alpha$ (псевдодоплонения не обязаны сохраниться).
+что $\mathcal{G} \not\models \alpha$ (псевдодополнения не обязаны сохраниться).
 Тогда по лемме, $|\mathcal{G}| \le 2^{2^{n+2}}$. 
 \end{proof}
 
@@ -134,7 +134,7 @@ $$R\langle f,g\rangle(\overrightarrow{x},y)=
 $$\begin{array}{ll}
     R\langle f,g\rangle(\overrightarrow{x},3) &= g(\overrightarrow{x},2,R\langle f,g\rangle(\overrightarrow{x},2)) \\\pause
  &=   g(\overrightarrow{x},2,g(\overrightarrow{x},1,R\langle f,g\rangle(\overrightarrow{x},1))) \\\pause
- &=   g(\overrightarrow{x},2,g(\overrightarrow{x},1,g(\overrightarrow{x},0,R\langle f,g\rangle(\overrightarrow{x},1)))) \\\pause
+ &=   g(\overrightarrow{x},2,g(\overrightarrow{x},1,g(\overrightarrow{x},0,R\langle f,g\rangle(\overrightarrow{x},0)))) \\\pause
  &=  g(\overrightarrow{x},2,g(\overrightarrow{x},1,g(\overrightarrow{x},0,f(\overrightarrow{x}))))
 \end{array}$$
 \end{exm}
@@ -211,8 +211,8 @@ $... = N(x+y) = x+y+1$
 \item Неформально: все функции, вычисляемые конечным числом вложенных циклов \verb!for!:
 
 \begin{verbatim}
-for (int i1 = 0; i_1 < g1(x1...xn); i1++) {
-    for (int i2 = 0; i_2 < g2(x1...xn,i1); i2++) {
+for (int i1 = 0; i1 < g1(x1...xn); i1++) {
+    for (int i2 = 0; i2 < g2(x1...xn,i1); i2++) {
         ...
            for (int ik = 0; ik < gk(x1...xn,i1,i2...); ik++) {
                // выражение без циклов
@@ -299,7 +299,7 @@ $A(2,n) = 2n + 3$
 \vspace{-0.5cm}
 \begin{proof}
 \begin{enumerate}
-\item $A(p,q) = A(p-1,A(p,q-1)) = \dots = A(p-1,A(p-1,\dots A(1,0)) = A^{(q)}(p-1,A(p,0)) = A^{(q+1)}(p-1,1)$
+\item $A(p,q) = A(p-1,A(p,q-1)) = \dots = A(p-1,A(p-1,\dots A(p,0)) = A^{(q)}(p-1,A(p,0)) = A^{(q+1)}(p-1,1)$
 
 \item
 %$\alpha_{m+2}(n) = \alpha_{m+1}^{n+1}(1) = \alpha_{m+1}(\alpha_{m+1}^n(1)) =
