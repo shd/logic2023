@@ -36,7 +36,7 @@
 \begin{frame}{Построение дистрибутивных подрешёток}
 \begin{dfn}Решётка $\mathcal{L'} = \langle L', \preceq \rangle$ --- подрешётка решётки $\mathcal{L} = \langle L, \preceq \rangle$, 
 если $L' \subseteq L$, $(\preceq') \subseteq (\preceq)$ и 
-при $a,b \in L'$ выполнено $a +_{\mathcal{L'}} b = a +_{\mathcal{L}} b$ и $a \cdot_{\mathcal{L'}} b = a \cdot_{\mathcal{L}} b$
+при $a,b \in L'$ выполнено $a +_{\mathcal{L'}} b = a +_{\mathcal{L}} b$ и $a \cdot_{\mathcal{L'}} b = a \cdot_{\mathcal{L}} b$.
 \end{dfn}
 \begin{lmm}Существует дистрибутивная подрешётка $\mathcal{L'}$, содержащая
 $a_1, \dots, a_n$, что $|L'| \le 2^{2^n}$.
@@ -229,7 +229,7 @@ for (int i1 = 0; i1 < g1(x1...xn); i1++) {
 Функция --- общерекурсивная, если может быть построена при помощи
 примитивов $Z$, $N$, $U$, $S$, $R$ и примитива минимизации:
 $$M\langle f \rangle (x_1,x_2,\dots,x_n) = \min\{y: f(x_1,x_2,\dots,x_n,y) = 0\}$$
-Если $f(x_1,x_2,\dots,x_n,y) > 0$ при любом $y$, результат неопределён.
+Если $f(x_1,x_2,\dots,x_n,y) > 0$ при любом $y$, результат не определён.
 \end{dfn}\pause
 
 %Это --- цикл \texttt{while}: 
@@ -485,7 +485,7 @@ $a_i = \beta(b,c,i)$
 
 \begin{frame}{Доказательство свойства $\beta$-функции}
 \begin{thm}Китайская теорема об остатках (вариант формулировки): если $u_0, \dots, u_n$ --- попарно 
-взаимно-просты, и $0 \le a_i < u_i$, то существует такой $b$, что $a_i = b \% u_i$.
+взаимно просты, и $0 \le a_i < u_i$, то существует такой $b$, что $a_i = b \% u_i$.
 \end{thm}\pause
 Положим $c = \max(a_0,\dots,a_n,n)!$ и $u_i = 1+c\cdot(i+1)$.\pause
 \begin{itemize}
