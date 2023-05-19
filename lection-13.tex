@@ -51,15 +51,15 @@
 \begin{thm}Принципы математической индукции эквивалентны\end{thm}
 \begin{proof}
 $(\Rightarrow)$ взяв $\varphi := \psi$, имеем выполненность $\varphi(x)\rightarrow\varphi(x')$, значит, $\forall x.\psi(x)$. \pause\\
-$(\Leftarrow)$ возьмём $\psi(x) := \forall t.t\le x\rightarrow\varphi(t)$
+$(\Leftarrow)$ возьмём $\psi(x) := \forall t.t\le x\rightarrow\varphi(t)$.
 \end{proof}
 \end{frame}
 
 \begin{frame}{Наследственные множества}
-\begin{dfn} Назовём вполне-упорядоченное отношением $(\in)$ множество $S$ наследственным подмножеством $A$, если 
+\begin{dfn} Назовём вполне упорядоченное отношением $(\in)$ множество $S$ наследственным подмножеством $A$, если 
 $\forall x.x \in A \rightarrow (\forall t.t \in x \rightarrow t \in S) \rightarrow x \in S$.
 \end{dfn}
-\begin{thm}Единственным наследственным подмножеством вполне-упорядоченного множества является оно само.\end{thm}
+\begin{thm}Единственным наследственным подмножеством вполне упорядоченного множества является оно само.\end{thm}
 \begin{proof}Пусть $B \subseteq A$ --- наследственное и $B \ne A$.
 Тогда существует $a = \min (A \setminus B)$. Тогда $(\forall t.t \in a \rightarrow t \in B) \rightarrow a \in B$ по наследственности $B$,
 и выполнено $\forall t.t \in a \rightarrow t \in B$ (по минимальности $a$). Значит, $a \in B$.
