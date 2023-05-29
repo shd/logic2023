@@ -155,7 +155,7 @@ $\{\varnothing,\{\varnothing\},\{\varnothing,\{\varnothing\}\}\}$, \dots\pause
 \begin{exm}Ординалы: $\varnothing$, \pause $\varnothing'$, \pause $\varnothing''$, \dots\end{exm}\pause
 \begin{dfn}Предельный ординал: такой $x$, что $x \ne \varnothing$ и нет $y: y' = x$\end{dfn}\pause
 \begin{dfn}Ординал $x$ конечный, если он меньше любого предельного.\end{dfn}\pause
-\begin{thm}Если $x,y$ --- ординалы, то $x\in y$ или $y \in x$.\end{thm}
+\begin{thm}Если $x,y$ --- ординалы, то $x = y$, или $x\in y$, или $y \in x$.\end{thm}
 \end{frame}
 \begin{frame}{Предельные ординалы, $\omega$}
 \begin{dfn}$\omega$ --- наименьший предельный ординал.\end{dfn}\pause
@@ -283,7 +283,7 @@ $$rk(x) = \sup\{rk(y)\ |\ y\in x\}$$.
 \begin{dfn}Схема аксиом подстановки. 
 Пусть задана некоторая функция f, представимая в исчислении предикатов:
 то есть задана некоторая формула $\phi$, такая, что $f(x) = y$
-тогда и только тогда, когда $\phi(x,y) \with \exists ! z \phi(x,z)$.
+тогда и только тогда, когда $\phi(x,y) \with \exists ! z. \phi(x,z)$.
 Тогда для любого множества S существует множество f(S) --- образ
 множества S при отображении f.
 $$\forall s .(\forall x .\forall y_1 .\forall y_2 .x \in s \with \phi (x,y_1) \with \phi
