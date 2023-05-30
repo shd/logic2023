@@ -398,7 +398,7 @@ $$\llbracket\forall p.Q\rrbracket = \left\{\begin{array}{ll}\text{И}, &
 
 $$a + b = \left\{\begin{array}{ll} a, & b = 0\\ \texttt{suc }(a + c), & b = \texttt{suc }c\end{array}\right.$$
 
-\texttt{\\func pmap {A B : \\Type} (f : A -> B) \{a a' : A\} (p : a = a') : f a = f a' => ...}
+\texttt{\\func pmap {A B : \\} (f : A -> B) \{a a' : A\} (p : a = a') : f a = f a' => ...}
 
 \texttt{\\func +-comm (n m : Nat) : n + m = m + n\\
   | 0, 0 => idp\\
