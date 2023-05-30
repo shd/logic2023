@@ -87,7 +87,7 @@ $$FV(A) = \left\{\begin{array}{ll} \{x\}, & A \equiv x\\
 \begin{enumerate}
 \item \color{gray}$A \equiv x$, $B \equiv y$, $x \equiv y$;
 \item \color{gray}$A \equiv P_a Q_a$, $B \equiv P_b Q_b$ и $P_a =_\alpha P_b$, $Q_a =_\alpha Q_b$;
-\item \color{gray}$A \equiv (\lambda x.P)$, $B \equiv (\lambda y.Q)$, $P[x := t] =_\alpha Q[y := t]$, где $t \notin FV(A)\cup FV(B)$
+\item \color{gray}$A \equiv (\lambda x.P)$, $B \equiv (\lambda y.Q)$, $P[x := t] =_\alpha Q[y := t]$, где $t$ не входит в $A$ и $B$.
 \end{enumerate}\vspace{-0.2cm}\begin{lmm}\vspace{-0.3cm}
 $$\lambda a.\lambda b.a\ b =_\alpha \lambda b.\lambda a.b\ a$$\vspace{-0.3cm}
 \end{lmm}\vspace{-0.3cm}
