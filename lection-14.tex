@@ -157,7 +157,7 @@ $=(\lambda x.\lambda y.y)\ T\ T\rightarrow_\beta (\lambda y.y)\ T \rightarrow_\b
 $$f^{(n)}(x) = \left\{\begin{array}{ll}x, & n = 0\\f(f^{(n-1)}(x)), & n > 0\end{array}\right.$$
 
 \begin{dfn}
-Чёрчевский нумерал $\overline{n} = f^{(n)}(x)$
+Чёрчевский нумерал $\overline{n} = \lambda f.\lambda x.f^{(n)}(x)$
 \end{dfn}
 
 \begin{exm}
