@@ -181,3 +181,12 @@ https://www.mccme.ru/free-books/shen/shen-logic-part1.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 15
+### Метод резолюций
++ Теорема Гёделя о компактности исчисления предикатов
++ Сколемизация
++ Эрбранов универсум
++ Метод резолюций
+### Где почитать
++ Ч. Чень, Р. Ли, Математическая логика и автоматическое доказательство теорем --- М.: Изд-во <<Наука>>, 1983.
