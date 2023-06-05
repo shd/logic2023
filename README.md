@@ -4,6 +4,7 @@
 + [Конспект 2018 года](https://github.com/shd/logic2018/blob/master/conspect.pdf)
 + [Конспект 2011 года](https://github.com/shd/logic2011/blob/master/conspect.pdf)
 + [Теоретические домашние задания](https://github.com/shd/logic2023/blob/master/hw-theory.pdf)
++ [Список вопросов к зачёту/экзамену](https://github.com/shd/logic2023/blob/master/questions.pdf)
 
 + [Краткая инструкция по утилите make](https://github.com/shd/logic2018/blob/master/make.pdf)
 
