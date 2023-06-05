@@ -1,0 +1,405 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{cancel}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{cmll}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{tikz}
+\usepackage{multicol}
+\usetikzlibrary{patterns}
+\usepackage{chronosys}
+\usepackage{proof}
+\usepackage{multirow}
+\usepackage{comment}
+\setbeamertemplate{navigation symbols}{}
+%\usetheme{Warsaw}
+
+\newtheorem{thm}{Теорема}[section]
+\newtheorem{dfn}{Определение}[section]
+\newtheorem{lmm}{Лемма}[section]
+\newtheorem{exm}{Пример}[section]
+\newtheorem{snote}{Пояснение}[section]
+
+\newcommand{\divisible}%
+{\mathrel{\lower.2ex%
+\vbox{\baselineskip=0.7ex\lineskiplimit=0pt%
+\kern6pt \hbox{.}\hbox{.}\hbox{.}}%
+}}
+
+\begin{document}
+
+\newcommand\doubleplus{+\kern-1.3ex+\kern0.8ex}
+\newcommand\mdoubleplus{\ensuremath{\mathbin{+\mkern-10mu+}}}
+
+\begin{frame}{}
+\begin{center}\Large Метод резолюций \end{center}
+\end{frame}
+\begin{comment}
+\begin{frame}{Компактность}
+\begin{dfn} 
+Пространство $X$ компактно, если из любого его открытого покрытия $U$ можно выделить конечное подпокрытие:
+
+$X = \cup U$, существует $V \subseteq U$, что $|V| < \aleph_0$ и $X = \cup V$.
+\end{dfn}
+
+\begin{exm}
+$(0,1)$ не компактен. Например, $U = \{(\varepsilon/2,\varepsilon)\ |\ \varepsilon\in(0,1)\}$.
+Пусть $V \subset U$ и $|V| < \aleph_0$. Тогда $\min \{ a\ |\ (a,b) \in V \} > 0$.
+\end{exm}
+
+\begin{exm}
+$[0,1]$ компактен. Выберем $U$ и покажем, что в нём есть подпокрытие.
+Рассмотрим все подотрезки вида $[a,x]$ где $a < x$, имеющие конечное покрытие.
+Несложно показать, что $\max x = 1$.
+\end{exm}
+\end{frame}
+
+\begin{frame}{Фильтры}
+\begin{dfn}
+Фильтром $\mathcal{F}$ назовём структуру на элементах 
+некоторой булевой алгебры $\langle L, (\preceq) \rangle$ со следующими свойствами:
+\begin{itemize}
+\item $\mathcal{F} \ne \varnothing$, $0 \notin \mathcal{F}$;
+\item если $a,b \in \mathcal{F}$, то $a \cdot b \in \mathcal{F}$;
+\item если $a \in \mathcal{F}$, $a \preceq b$, $b \in L$, то $b \in \mathcal{F}$.
+\end{itemize}
+\end{dfn}
+
+\begin{exm}
+Главный фильтр для множества: $\{ E\subseteq U\ |\ S \subseteq E \}$.
+\end{exm}
+\begin{exm}
+Фильтр Фреше: $\{ X\subseteq U\ |\ |cX| < \aleph_0\}$ при $|U| \ge \aleph_0$.
+\end{exm}
+\end{frame}
+
+\begin{frame}{База и предбаза фильтра}
+\begin{dfn}База фильтра --- семейство непустых множеств, что
+любое конечное пересечение множеств также принадлежит базе.\end{dfn}
+\begin{dfn}Предбаза фильтра --- семейство непустых множеств, что
+любое конечное пересечение множеств непусто.\end{dfn}
+\begin{dfn}Если $B$ --- предбаза фильтра, то $\{ X \subseteq U\ |\ X\}$\end{dfn}
+\end{frame}
+
+\begin{frame}{Ультрафильтры}
+\begin{dfn}
+Ультрафильтр $\mathcal{U}$ --- фильтр, не являющийся собственным подфильтром никакого 
+другого фильтра. Нет $\mathcal{F}$, что $\mathcal{U}\subset\mathcal{F}$.
+\end{dfn}
+
+\begin{exm}
+$\{ X \subseteq \mathbb{R}\ |\ 1 \in X \}$ --- ультрафильтр.
+\end{exm}
+
+\begin{thm}Фильтр $\mathcal{F}$ над $L$ --- ультрафильтр тогда и только тогда,
+когда для всех $x \in L$ либо $x \in \mathcal{F}$, либо $\sim x \in \mathcal{F}$.
+\end{thm}
+\begin{proof}$(\Rightarrow)$.
+Пусть $x \notin \mathcal{F}$ и $\sim x \notin \mathcal{F}$. Тогда $\mathcal{F}\cup\{x\}$ --- предбаза
+фильтра, так как если $p \in \mathcal{F}$ и $p \cdot x = 0$, то $p \cdot x + \sim x = \sim x$
+и далее $\sim x = (p + \sim x)\cdot (x + \sim x) = p + \sim x$. Поэтому $p \preceq \sim x$,
+отчего $\sim x \in \mathcal{F}$.
+
+$(\Leftarrow)$. Если есть фильтр больше, то обязательно для какого-то $t$ и $t \in \mathcal{G}$,
+и $\sim t \in \mathcal{G}$, но тогда $t \cdot \sim t = 0$.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Произведение интерпретаций}
+Пусть есть две похожие математические структуры. Например, $\langle A, \prec \rangle$
+и $\langle B, \prec \rangle$.
+Расширим это свойство на пары: $\langle a,b \rangle \prec \langle c,d\rangle$, если
+$a \prec c$ и $b \prec d$. 
+
+\begin{dfn}Пусть даны интерпретации $M_i$ предиката $P$ 
+Положим $\Pi_i M_i \models P(x_1,\dots,x_n)$, если $M_k \models P(x_1,\dots,x_n)$
+при всех $M_k$.
+\end{dfn}
+
+Просто, но не всегда работает: линейный порядок можно потерять:
+$M_1, M_2$ --- модели с $D = \mathbb{N}$, тогда $M_1 \times M_2 \models x_1 \le x_2$ только если
+$M_1 \models x_1 \le x_2$ и $M_2 \models x_1 \le x_2$ (то есть отношение имеет место покомпонентно).
+
+\begin{dfn}Пусть даны интерпретации $M_i$ предиката $P$ и фильтр $F$.
+Положим $\Pi_i M_i/F \models P(x_1,\dots,x_n)$, если $\{ k \ |\ M_k \models P(x_1,\dots,x_n) \} \in F$
+(назовём это фильтрованным произведением интерпретаций).
+\end{dfn}
+
+Если $F$ --- ультрафильтр, то порядок останется линейным.
+\end{frame}
+
+\begin{frame}{Теорема Лося}
+Доопределим связки на $\Pi_i M_i/F$ естественным образом.
+\begin{thm}
+Пусть $M_i$ --- семейство интерпретаций и $U$ --- некоторый ультрафильтр на индексном множестве семейства.
+$\Pi_i M_i/U\models \varphi$ тогда и только тогда, когда $\{ k \ |\ M_k \models \varphi\} \in U$.
+\end{thm}
+\begin{proof}Индукция по структуре\end{proof}
+\end{frame}
+
+\begin{frame}{Топология на полных непротиворечивых множествах формул}
+\begin{dfn}Пусть $\varphi$ --- формула языка $L$. Сопоставим ей $\langle \varphi\rangle$ --- множество
+всех полных непротиворечивых множеств формул $\Gamma$, что $\Gamma \vdash \varphi$. 
+\end{dfn}
+\begin{thm}$B = \{\langle\varphi\rangle\ |\ \varphi\in L\}$ образует базу топологии.\end{thm}
+Назовём это пространство $\mathcal{L}$.
+\begin{thm}Замкнутое множество \end{thm}
+\end{frame}
+\end{comment}
+
+\begin{frame}{Ищем доказательство в исчислении предикатов}
+Хотим научиться проверять доказуемость формул исчисления предикатов.
+В общем случае невозможно, но человек как-то справляется? Может,
+для каких-то частных случаев мы сможем предложить метод? 
+
+По теореме о полноте можем рассматривать $(\models)$ вместо $(\vdash)$. 
+Напомним: $\models \alpha$, если для всех $M = \langle D, F, P, E \rangle$ выполнено $M \models \alpha$.
+Нам мешает:
+\begin{enumerate}
+\item бесконечное множество предметных множеств $D$ и оценок;
+\item бесконечный перебор для кванторов;
+\end{enumerate}
+Будем последовательно упрощать задачу:
+\begin{enumerate}
+\item упростим формулу;
+\item заменим произвольное $D$ на рекурсивно-перечислимое, устроенное некоторым фиксированным образом;
+\item научимся по этому перечислимому $D$ искать доказательство / противоречие.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Компактность}
+\begin{dfn} 
+Пространство $X$ компактно, если из любого его открытого покрытия $U$ можно выделить конечное подпокрытие:
+
+$X = \cup U$, существует $V \subseteq U$, что $|V| < \aleph_0$ и $X = \cup V$.
+\end{dfn}
+
+\begin{exm}
+$(0,1)$ не компактен. Например, $U = \{(\varepsilon/2,\varepsilon)\ |\ \varepsilon\in(0,1)\}$.
+Пусть $V \subset U$ и $|V| < \aleph_0$. Тогда $\min \{ a\ |\ (a,b) \in V \} > 0$.
+\end{exm}
+
+\begin{exm}
+$[0,1]$ компактен. Выберем $U$ и покажем, что в нём есть подпокрытие.
+Рассмотрим все подотрезки вида $[a,x]$ где $a < x$, имеющие конечное покрытие.
+Несложно показать, что $\max x = 1$.
+\end{exm}
+\end{frame}
+
+
+\begin{frame}{Теорема Гёделя о компактности}
+%\begin{thm}Пространство $\mathcal{L}$ --- вполне несвязно компактное.
+%\end{thm}
+\begin{thm}Если $\Gamma$ --- некоторое семейство формул, то $\Gamma$ имеет модель
+тогда и только тогда, когда любое его конечное подмножество имеет модель.\end{thm}
+%\begin{proof}Рассмотрим все полные семейства формул, содержащие $\Gamma$.
+%\end{proof}
+\end{frame}
+
+\begin{frame}{Сколемизация. Упрощаем формулу.}
+\begin{enumerate}
+\item Предварённая форма (поверхностные кванторы):
+$\psi := Q x_1.Q x_2\dots Q x_n.\varphi(x_1,\dots,x_n)$
+
+\item Для упрощения предполагаем, что кванторы чередуются.
+Это не сильно уменьшает общность. Например, если $D = \mathbb{N}$,
+то $(\forall x.\forall y.\varphi(x,y)) \leftrightarrow (\forall p.\varphi(\text{plog}_2(p),\text{plog}_3(p))$
+
+\item Убрать кванторы существования:
+$\zeta = \exists x_1.\forall x_2.\exists x_3.\forall x_4\dots\exists x_{n-1}.\forall x_n.\varphi(x_1,\dots,x_n)$
+
+Заменим $x_{2k+1}$ функцией Сколема: $e_{2k+1}(x_2,x_4,\dots,x_{2k})$.
+
+Получим: $\eta = \forall x_2.\forall x_4\dots\forall x_n.\varphi(e_1,x_2,e_3(x_2),\dots,e_{n-1}(x_2,x_4,\dots,x_{n-2}),x_n)$
+Очевидно, что $\vdash\zeta$ эквивалентно $\models\zeta$ эквивалентно $\models\eta$ и $\vdash\eta$.
+
+\item ДНФ:
+$$\forall x_2.\forall x_4\dots\forall x_n.\bigwedge_c\left(\bigvee_{i = \overline{1,d(c)}} (\neg)P_i(\theta_i)\right)$$
+
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Эрбранов универсум}
+\begin{dfn}Пусть $H_0(\varphi)$ --- все константы в формуле $\varphi$ (либо особая константа $a$, если констант в $\varphi$ нет)\\
+$H_1(\varphi)$ --- $H_0(\varphi)$ и все функции от значений $H_0(\varphi)$ (как строки)\\
+$H_2(\varphi)$ --- $H_1(\varphi)$ и все функции от значений $H_1(\varphi)$ (как строки)
+
+$H = \cup H_n(\varphi)$ --- основные термы.
+\end{dfn}
+
+\begin{exm}$P(a)\vee Q(f(b))$: \\
+$H_0 = \{a,b\}$\\
+$H_1 = \{a,b,f(a),f(b)\}$\\
+$H_2 = \{a,b,f(a),f(b),f(f(a)),f(f(b))\}$\\
+$\dots$\\
+$H = \{f^{(n)}(x)\ |\ n \in \mathbb{N}_0, x \in \{a,b\}\}$\end{exm}
+\end{frame}
+
+\begin{frame}{Выполнимость}
+\begin{thm}Формула выполнима тогда и только тогда, когда она выполнима на Эрбрановом универсуме.\end{thm}
+\begin{proof}
+$(\Rightarrow)$ Пусть $M \models\forall \overline{x}.\varphi$. Тогда построим отображение $\text{eval}: H \rightarrow M$
+(смысл названия вдохновлён языками программирования: $\text{eval}(``f(f(b))``)$ перейдёт в $f(f(b))$, где $f$ и $b$ --- из $M$).
+
+Предикатам дадим согласованную оценку:
+$P_H(t_1,\dots,t_n) = P_M(h(t_1),\dots,h(t_n))$. Очевидно, любая формула сохранит своё значение, кванторы всеобщности
+по меньшему множеству также останутся истинными.
+
+$(\Leftarrow)$ Очевидно.
+\end{proof}\end{frame}
+
+\begin{frame}{Противоречивость}
+\begin{dfn}Система дизъюнктов $\{\delta_1,\dots,\delta_n\}$ противоречива,
+если для каждой интерпретации $M$ найдётся $\delta_k$ и такой набор $d_1\dots d_v$,
+что $\llbracket\delta_k\rrbracket^{x_1 := d_1, \dots, x_v := d_v} = \text{Л}$.\end{dfn}
+\begin{thm}Система дизъюнктов противоречива, если она невыполнима на Эрбрановом универсуме.\end{thm}
+\begin{proof}Контрапозиция теоремы о выполнимости + разбор определения.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Основные примеры}
+\begin{dfn}
+Дизъюнкт с подставленными основными термами вместо переменных называется основным примером.
+Системой основных примеров назовём множество основных примеров опровержимых дизъюнктов:
+
+Если $M \not\models \delta_k$ для некоторой эрбрановской интерпретации, то
+возьмём все возможные основные примеры $\delta_k$.
+\end{dfn}
+
+\begin{thm}Система дизъюнктов $S$ противоречива тогда и только тогда, когда система всевозможных
+основных примеров $E$ противоречива\end{thm}
+\begin{proof}Для некоторой эрбрановой интерпретации дизъюнкт $\delta_k$
+опровергается тогда и только тогда, когда соответствующая ему подстановка в $E$ опровергается.
+\end{proof}\end{frame}
+
+\begin{frame}{Теорема Эрбрана}
+\begin{thm}[Эрбрана]Система дизъюнктов $S$ противоречива тогда и только тогда, когда существует
+конечное противоречивое множество основных примеров системы дизъюнктов $S$\end{thm}
+\begin{proof}$(\Leftarrow)$ 
+Пусть $\delta_1[\overline{x} := \overline{\theta}],\dots,\delta_k[\overline{x} := \overline{\theta}]$ 
+--- противоречивое множество примеров дизъюнктов. Тогда интерпретация $\overline{\theta}$
+опровергает хотя бы один из $\delta_k$ и система противоречива.
+
+$(\Rightarrow)$ Если $S$ противоречива, то значит, множество основных примеров $S$
+противоречиво (по теореме о выполнимости Эрбранова универсума). Тогда по теореме компактности
+в нём найдётся конечное противоречивое подмножество.
+\end{proof}
+\end{frame}
+
+\begin{frame}{Правило резолюции (исчисление высказываний)}
+Пусть даны два дизъюнкта, $\alpha_1 \vee \beta$ и $\alpha_2 \vee \neg \beta$.
+Тогда следующее правило вывода называется правилом резолюции:
+
+$$\infer{\alpha_1\vee \alpha_2}{\alpha_1\vee \beta\quad\quad \alpha_2\vee\neg \beta}$$
+
+\begin{thm}Система дизъюнктов противоречива, если в процессе всевозможного применения
+правила резолюции будет построено явное противоречие, 
+т.е. найдено два противоречивых дизъюнкта: $\beta$ и $\neg\beta$.
+\end{thm}
+\end{frame}
+
+\begin{frame}{Алгебраические термы}
+	\begin{dfn}Алгебраический терм $$\theta := x\:|\:(f(\theta_1,\ldots,\theta_n))$$ 
+где $x-$переменная, $f(\theta_1,\ldots,\theta_n)-$применение функции. Напомним, что константы --- нульместные
+функциональные символы, собственно переменные будем обозначать последними буквами латинского алфавита. \end{dfn}
+	%\subsection{Уравнение в алгебраических термах $\theta_1=\theta_2$\\Система уравнений в алгебраических термах}
+	\begin{dfn}Система уравнений в алгебраических термах
+	$
+		\begin{cases}
+			\theta_1=\sigma_1&\\
+			\vdots&\\
+			\theta_n=\sigma_n&\\
+		\end{cases}
+	$\par где $\theta_i \text{ и } \sigma_i-\text{термы}$\par
+\end{dfn}
+\end{frame}
+\begin{frame}{Уравнение в алгебраических термах}
+	\begin{dfn}$\{x_i\}=X-$множество переменных, $\{\theta_i\}=T-$множество термов.\end{dfn}
+	\begin{dfn}Подстановка$-$отображение вида: $\pi_0:X\to T$, тождественное почти везде.
+        \par $\pi_0(x)$ может быть либо $\pi_0(x)=\theta_i\text{, либо }\pi_0(x)=x$.\end{dfn} 
+	Доопределим $\pi:T\to T$, где \begin{enumerate}
+		\item $\pi(x)=\pi_0(x)$
+		\item $\pi(f(\theta_1, \ldots, \theta_k))=f(\pi(\theta_1), \ldots, \pi(\theta_k))$
+	\end{enumerate}
+	
+	\begin{dfn}Решить уравнение в алгебраических термах$-$найти такую наиболее общую подстановку $\pi$, 
+        что $\pi(\theta_1)=\pi(\theta_2)$.
+Наиболее общая подстановка --- такая, для которой другие подстановки являются её частными случаями.\end{dfn} 
+\end{frame}
+
+\begin{frame}{Задача унификации}
+\begin{dfn}
+Пусть даны формулы $\alpha$ и $\beta$. Тогда решением задачи унификации
+будет такая наиболее общая подстановка $\pi = \mathcal{U}\big[\alpha,\beta\big]$, что $\pi(\alpha) = \pi(\beta)$.
+
+%Будем писать $\Sigma = \mathcal{U}\[\alpha,\beta\]$, если $\Sigma(\alpha) = \Sigma(\beta) = \eta$ и $\Sigma$ --- наиболее общая.
+Также, $\eta$ назовём наиболее общим унификатором.
+\end{dfn}
+
+\begin{exm}
+\begin{itemize}
+%\item $\mathcal{U}\[ P(x,g(b)),P(f(a),y) \] = [ x := f(a), y := f(b) ]$ 
+%и $P(f(a),g(b))$ --- унификатор.
+\item Формулы $P(a,g(b))$ и $P(c,d)$ не имеют унификатора (мы считаем, что $a,b,c,d$ --- нульместные функции, а
+$f$ --- одноместная функция).
+\end{itemize}
+\end{exm}
+\end{frame}
+
+\begin{frame}{Правило резолюции для исчисления предикатов}
+\begin{dfn}
+Пусть $\sigma_1$ и $\sigma_2$ --- подстановки, заменяющие переменные в формуле на свежие. 
+Тогда правило резолюции выглядит так:
+
+$$\infer[{\pi = \mathcal{U}\big[\sigma_1(\beta_1),\sigma_2(\beta_2)\big]}]
+        {\pi(\sigma_1(\alpha_1)\vee \sigma_2(\alpha_2))}
+        {\alpha_1\vee \beta_1\quad\quad\alpha_2\vee\neg \beta_2}$$
+\end{dfn}
+
+$\sigma_1$ и $\sigma_2$ разделяют переменные у дизъюнктов, чтобы $\pi$ не осуществила лишние
+замены, ведь $\vdash(\forall x.P(x) \with Q(x)) \leftrightarrow (\forall x.P(x))\with(\forall x.Q(x))$, но
+$\not\vdash (\forall x.P(x) \vee Q(x)) \rightarrow (\forall x.P(x))\vee(\forall x.Q(x))$.
+
+\begin{exm}\vspace{-0.5cm}
+$$\infer[\text{ подстановки: } \sigma_1(x) = x', \sigma_2(x) = x'', \pi(x')=a]{Q(a)\vee T(x'')}{Q(x)\vee P(x) \quad \neg P(a)\vee T(x)}$$
+\end{exm}
+\end{frame}
+
+\begin{frame}{Метод резолюции}
+Ищем $\vdash\alpha$.
+
+\begin{enumerate}
+\item найдём опровержение $\neg\alpha$.
+\item перестроим $\neg\alpha$ в ДНФ.
+\item будем применять правило резолюции, пока получаем новые дизъюнкты и пока 
+не найдём явное противоречие (дизъюнкты вида $\beta$ и $\neg\beta$).
+\end{enumerate}
+
+Если противоречие нашлось, значит, $\vdash\neg\neg\alpha$. Если нет --- значит, $\vdash\neg\alpha$.
+Процесс может не закончиться.
+\end{frame}
+
+\begin{frame}{SMT-решатели}
+
+Обычно требуется не логическое исчисление само по себе, а теория первого порядка.
+То есть, <<Satisfability Modulo Theory>>, <<выполнимость в теории>> --- вместо SAT, выполнимости.
+\begin{itemize}
+\item Иногда можно вложить теорию в логическое исчисление, 
+даже в исчисление высказываний: $\overline{S_2S_1S_0} = \overline{A_1A_0}+\overline{B_1B_0}$
+$$\begin{array}{ll}
+S_0 = A_0 \oplus B_0 & C_0 = A_0 \with B_0\\
+S_1 = A_1 \oplus B_1 \oplus C_0 & C_1 = (A_1 \with B_1) \vee (A_1 \with C_0) \vee (B_1 \with C_0) \\
+S_2 = C_1\end{array}$$
+
+\item А можно что-то добавить прямо на уровень унификации / резолюции:
+Например, можем зафиксировать арифметические функции --- и производить вычисления
+в правиле резолюции вместе с унификацией.
+
+Тогда противоречие в $\{x = 1+3+1,\neg x = 5\}$ можно найти за один шаг.
+\end{itemize}
+\end{frame}
+
+\end{document}

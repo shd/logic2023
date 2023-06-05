@@ -4,6 +4,7 @@
 + [Конспект 2018 года](https://github.com/shd/logic2018/blob/master/conspect.pdf)
 + [Конспект 2011 года](https://github.com/shd/logic2011/blob/master/conspect.pdf)
 + [Теоретические домашние задания](https://github.com/shd/logic2023/blob/master/hw-theory.pdf)
++ [Список вопросов к зачёту/экзамену](https://github.com/shd/logic2023/blob/master/questions.pdf)
 
 + [Краткая инструкция по утилите make](https://github.com/shd/logic2018/blob/master/make.pdf)
 
@@ -181,3 +182,12 @@ https://www.mccme.ru/free-books/shen/shen-logic-part1.pdf
 ### Где почитать
 + Morten Heine B. Sørensen, Pawel Urzyczyn: Lections on the Curry-Howard Isomorphism
 https://disi.unitn.it/~bernardi/RSISE11/Papers/curry-howard.pdf
+
+## Лекция 15
+### Метод резолюций
++ Теорема Гёделя о компактности исчисления предикатов
++ Сколемизация
++ Эрбранов универсум
++ Метод резолюций
+### Где почитать
++ Ч. Чень, Р. Ли, Математическая логика и автоматическое доказательство теорем --- М.: Изд-во <<Наука>>, 1983.
