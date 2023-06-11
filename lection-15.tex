@@ -214,7 +214,8 @@ $\zeta = \exists x_1.\forall x_2.\exists x_3.\forall x_4\dots\exists x_{n-1}.\fo
 Заменим $x_{2k+1}$ функцией Сколема: $e_{2k+1}(x_2,x_4,\dots,x_{2k})$.
 
 Получим: $\eta = \forall x_2.\forall x_4\dots\forall x_n.\varphi(e_1,x_2,e_3(x_2),\dots,e_{n-1}(x_2,x_4,\dots,x_{n-2}),x_n)$
-Очевидно, что $\vdash\zeta$ эквивалентно $\models\zeta$ эквивалентно $\models\eta$ и $\vdash\eta$.
+
+$\vdash\zeta$ эквивалентно $\models\zeta$ эквивалентно выполнимости $\eta$ при всех $D$.
 
 \item ДНФ:
 $$\forall x_2.\forall x_4\dots\forall x_n.\bigwedge_c\left(\bigvee_{i = \overline{1,d(c)}} (\neg)P_i(\theta_i)\right)$$
@@ -296,9 +297,23 @@ $(\Rightarrow)$ Если $S$ противоречива, то значит, мн
 $$\infer{\alpha_1\vee \alpha_2}{\alpha_1\vee \beta\quad\quad \alpha_2\vee\neg \beta}$$
 
 \begin{thm}Система дизъюнктов противоречива, если в процессе всевозможного применения
-правила резолюции будет построено явное противоречие, 
+правила резолюции будет построено явное противоречие,
 т.е. найдено два противоречивых дизъюнкта: $\beta$ и $\neg\beta$.
 \end{thm}
+\end{frame}
+
+\begin{frame}{Расширение правила резолюции на исчисление предикатов}
+Заметим, что правило резолюции для исчисления высказываний не подойдёт для исчисления предикатов.
+
+$$S = \{ P(x), \neg P(0)\}$$
+
+Здесь $P(x)$ противоречит $\neg P(0)$, но правило резолюции для исчисления высказываний здесь неприменимо:
+%$\beta \equiv P(x)$, тогда $\neg \beta \not\equiv \neg P(0)$.
+
+$$\infer{???}{P({\color{red}x})\quad\quad\neg P({\color{red}0})}$$
+
+Нужно заменять $P(x)$ на основные примеры, и искать среди них. Модифицируем правило резолюции для этого.
+
 \end{frame}
 
 \begin{frame}{Алгебраические термы}
