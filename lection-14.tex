@@ -157,7 +157,7 @@ $=(\lambda x.\lambda y.y)\ T\ T\rightarrow_\beta (\lambda y.y)\ T \rightarrow_\b
 $$f^{(n)}(x) = \left\{\begin{array}{ll}x, & n = 0\\f(f^{(n-1)}(x)), & n > 0\end{array}\right.$$
 
 \begin{dfn}
-Чёрчевский нумерал $\overline{n} = f^{(n)}(x)$
+Чёрчевский нумерал $\overline{n} = \lambda f.\lambda x.f^{(n)}(x)$
 \end{dfn}
 
 \begin{exm}
@@ -238,10 +238,10 @@ $$\infer[x \notin \Gamma]{\Gamma,x:\varphi \vdash x:\varphi}{} \quad\quad
 $$\infer[\lambda]{\vdash \lambda f.\lambda x.f\ (f\ x) : (\alpha\rightarrow\alpha)\rightarrow(\alpha\rightarrow\alpha)}{
   \infer[\lambda]{f: \alpha\rightarrow\alpha \vdash \lambda x.f\ (f\ x) : (\alpha\rightarrow\alpha)}{
     \infer[App]{{\color{blue}\{ f:\alpha\rightarrow\alpha, x: \alpha\}\ }\Gamma \vdash f\ (f\ x): \alpha}{
-      \infer[Ax]{\Gamma \vdash f: \alpha\rightarrow\alpha}{}\quad\quad
       \infer[App]{\Gamma \vdash f\ x: \alpha}{
-        \infer[Ax]{\Gamma \vdash f: \alpha\rightarrow\alpha}{}\quad\quad\infer[Ax]{\Gamma \vdash x: \alpha}{}
-      }
+        \infer[Ax]{\Gamma \vdash x: \alpha}{}\quad\quad\infer[Ax]{\Gamma \vdash f: \alpha\rightarrow\alpha}{}
+      }\quad\quad
+      \infer[Ax]{\Gamma \vdash f: \alpha\rightarrow\alpha}{}
     }
   }
 }$$
@@ -274,7 +274,7 @@ $$\infer[\lambda]{\lambda f^{\alpha\rightarrow\beta}.\lambda n^{\beta\rightarrow
         {\infer[\lambda]{f:\alpha\rightarrow\beta\vdash\lambda n^{\beta\rightarrow\bot}.\lambda a^\alpha.n\ (f\ a): \neg\beta\rightarrow\neg\alpha}
                {\infer[\lambda]{f:\alpha\rightarrow\beta,n:\beta\rightarrow\bot\vdash\lambda a^\alpha.n\ (f\ a): \neg\alpha}{
                        \infer[App]{f:\alpha\rightarrow\beta,n:\beta\rightarrow\bot, a:\alpha \vdash n\ (f\ a): \bot}{
-                              \infer[App]{\Phi \vdash f\ a: \beta}{\infer[Ax]{\Phi \vdash f:\alpha\rightarrow\beta}{}\quad\quad \infer[Ax]{\Phi \vdash a: \alpha}{}}
+                              \infer[App]{\Phi \vdash f\ a: \beta}{\infer[Ax]{\Phi \vdash a: \alpha}{}\quad\quad\infer[Ax]{\Phi \vdash f:\alpha\rightarrow\beta}{}}
     \quad\quad \infer[Ax]{\Phi \vdash n: \beta\rightarrow\bot}{}
                }
                }}}$$
@@ -398,7 +398,7 @@ $$\llbracket\forall p.Q\rrbracket = \left\{\begin{array}{ll}\text{И}, &
 
 $$a + b = \left\{\begin{array}{ll} a, & b = 0\\ \texttt{suc }(a + c), & b = \texttt{suc }c\end{array}\right.$$
 
-\texttt{\\func pmap {A B : \\Type} (f : A -> B) \{a a' : A\} (p : a = a') : f a = f a' => ...}
+\texttt{\\func pmap {A B : \\} (f : A -> B) \{a a' : A\} (p : a = a') : f a = f a' => ...}
 
 \texttt{\\func +-comm (n m : Nat) : n + m = m + n\\
   | 0, 0 => idp\\
