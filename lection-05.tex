@@ -227,40 +227,40 @@ $$\forall x.\sin x = 0 \vee (\sin x)^2+1 > 1$$
 
 \begin{frame}{Пример (очевидная интерпретация)}
 Оценим:
-$$\llbracket \forall x.\exists y.\neg x+1 = y \rrbracket$$ \pause
+$$\llbracket \forall a.\exists b.\neg a+1 = b \rrbracket$$ \pause
 
 Зададим оценку:
 \begin{itemize}
 \item $D := \mathbb{N}$;
 \item $F_{1} := 1$, $F_{(+)}$ --- сложение в $\mathbb{N}$;
-\item $P_{(=)}$ -- равенство в $\mathbb{N}$.
+\item $T_{(=)}$ -- равенство в $\mathbb{N}$.
 \end{itemize}\pause\vspace{0.5cm}
 
-Фиксируем $x\in\mathbb{N}$. Тогда: 
-$$\llbracket x+1 = y \rrbracket^{y := x} = \text{Л}$$\pause
-поэтому при любом $x\in\mathbb{N}$:
-$$\llbracket \exists y.\neg x+1 = y \rrbracket = \text{И}$$\pause
+Фиксируем $a\in\mathbb{N}$. Тогда: 
+$$\llbracket a+1 = b \rrbracket^{b := a} = \text{Л}$$\pause
+поэтому при любом $a\in\mathbb{N}$:
+$$\llbracket \exists b.\neg a+1 = b \rrbracket = \text{И}$$\pause
 
 Итого:
-$$\llbracket \forall x.\exists y.\neg x+1 = y \rrbracket = \text{И}$$
+$$\llbracket \forall a.\exists b.\neg a+1 = b \rrbracket = \text{И}$$
 
 \end{frame}
 
 \begin{frame}{Пример (странная интерпретация)}
 
-$$\llbracket \forall x.\exists y.\neg x+1 = y \rrbracket$$ \pause
+$$\llbracket \forall a.\exists b.\neg a+1 = y \rrbracket$$ \pause
 
 Зададим интерпретацию:
 \begin{itemize}
 \item $D := \{\square\}$;
-\item $F_{(1)} := \square$, $F_{(+)} (x,y) := \square$;
-\item $P_{(=)} (x,y) := \text{И}$.
+\item $F_{(1)} := \square$, $F_{(+)} (a,b) := \square$;
+\item $T_{(=)} (a,b) := \text{И}$.
 \end{itemize}\pause\vspace{0.5cm}
 
 Тогда:
-$$\llbracket x+1 = y \rrbracket^{\alt<4->{x \in D, y \in D}{x := \square,y := \square}} = \text{И}$$\pause\pause
+$$\llbracket a+1 = b \rrbracket^{\alt<4->{a \in D, b \in D}{a := \square,b := \square}} = \text{И}$$\pause\pause
 Итого:
-$$\llbracket \forall x.\exists y.\neg x+1 = y \rrbracket = \text{Л}$$
+$$\llbracket \forall a.\exists b.\neg a+1 = b \rrbracket = \text{Л}$$
 
 \end{frame}
 
