@@ -43,13 +43,13 @@
 $\langle\ulcorner \xi \urcorner,p\rangle \in W_1$, если $\vdash \xi(\overline{\ulcorner \xi \urcorner})$ и $p$ --- номер доказательства.
 \end{dfn}
 
-\begin{dfn}Отношение $W_1$ рекурсивно, поэтому выражено в Ф.А. формулой $\omega_1$ со свободными переменными $x_1$ и $x_2$, причём:
+\begin{lmm}Отношение $W_1$ рекурсивно, поэтому выражено в Ф.А. формулой $\omega_1$ со свободными переменными $x_1$ и $x_2$, причём:
 \begin{enumerate}
 \item $\vdash \omega_1(\overline{\ulcorner \varphi \urcorner},\overline{p})$, если $p$ --- гёделев номер
 доказательства самоприменения $\varphi$;
 \item $\vdash \neg\omega_1(\overline{\ulcorner \varphi \urcorner},\overline{p})$ иначе.
 \end{enumerate}
-\end{dfn}
+\end{lmm}
 
 \begin{dfn}
 Определим формулу $\sigma(x_1) := \forall p.\neg\omega_1(x_1,p)$. 
@@ -96,7 +96,7 @@ $\vdash\neg\forall p.\neg\omega_1(\overline{\ulcorner\sigma\urcorner},p)$. \paus
 
 \begin{frame}{Почему теорема о неполноте?}
 \begin{dfn}\emph{Семантически} полная теория --- теория, в которой любая общезначимая формула доказуема.\\
-\emph{Синтаксически} полная теория --- теория, в которой для каждой формулы $\alpha$ выполнено $\vdash\alpha$ или $\vdash\neg\alpha$.\end{dfn}
+\emph{Синтаксически} полная теория --- теория, в которой для каждой замкнутой формулы $\alpha$ выполнено $\vdash\alpha$ или $\vdash\neg\alpha$.\end{dfn}
 \begin{thm}Формальная арифметика с классической моделью семантически неполна.\end{thm} \pause
 \begin{proof}
  Рассмотрим Ф.А. с классической моделью. \pause
